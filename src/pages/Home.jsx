@@ -9,8 +9,12 @@ import { Box } from '@mui/material';
 import ActorCard from '../components/ActorCard';
 import {actors} from '../components/Actordata';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import Upcomming from '../components/Upcomming';
+import { fetchUpcomingMovies } from '../server/api';
+import Card from '../components/Card4';
 const Home = () => {
 const [Movies,setMovies]=useState([]);
+const [upcomingMovies,setUpcomingMovies]=useState([]);
  useEffect(() => {
   const dataFetch =async() => {
     let response =await fetchLatestMovies();
@@ -18,6 +22,12 @@ const [Movies,setMovies]=useState([]);
     console.log(Movies);
 
   }
+  const fetchUpcoming= async()=>{
+          let response =await fetchUpcomingMovies();
+          setUpcomingMovies(response);
+          console.log(upcomingMovies);
+      }
+      fetchUpcoming();
   dataFetch();
  }) 
   return (
@@ -37,6 +47,7 @@ const [Movies,setMovies]=useState([]);
       </Box>
       <MovieCard/>
       <FanFav/>
+        <Card movies={upcomingMovies}/>
       </Box>
       </Box>
     </>

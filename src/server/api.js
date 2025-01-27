@@ -22,7 +22,6 @@ async fetchTitleData =()=>{
 }
 */}
 
-
 export async function popularMovies(){
     try{
         const options = {
@@ -61,7 +60,8 @@ export async function fetchLatestMovies() {
                 apikey: API_KEY
             }
         });
-        return response.data.Search || []; // Return the search results
+        return response.data.Search
+         || []; // Return the search results
     } catch (error) {
         console.error('Error fetching latest movies:', error.message);
         throw error;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { fetchTopRatedMovies } from "../server/api";
+
 const responsive = {
   superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
   desktop: { breakpoint: { max: 3000, min: 1024 }, items: 6 },
@@ -9,17 +9,10 @@ const responsive = {
   mobile: { breakpoint: { max: 464, min: 0 }, items: 1 },
 };
 
-const MovieCard = () => {
-  const [topmovie, settopmovie] = useState([]);
+const MovieCard = ({movies}) => {
+  
 
-  useEffect(() => {
-    const fetchTop = async () => {
-      let response = await fetchTopRatedMovies();
-      settopmovie(response || []); // Ensure `response` is not undefined
-      console.log(response);
-    };
-    fetchTop();
-  }, []);
+  
 
   return (
     <div style={{ gap: "10px", width: "100%" }}>
@@ -34,13 +27,13 @@ const MovieCard = () => {
               background: "white",
             }}
           ></span>
-          TOP LATEST MOVIE
+          Upcoming
         </h1>
       </div>
 
       <Carousel responsive={responsive}>
-        {topmovie?.length > 0 &&
-          topmovie.map((movie, index) => (
+        {movies?.length > 0 &&
+          movies.map((movie, index) => (
             <div
               key={index}
               style={{

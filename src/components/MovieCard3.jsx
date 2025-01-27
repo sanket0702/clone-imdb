@@ -2,6 +2,8 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import {sampleMovies} from './Moviedata';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+
 const responsive = {
   superLargeDesktop: {
     breakpoint: { max: 4000, min: 3000 },
@@ -60,8 +62,8 @@ const MovieCard = () => {
                 
               
               
-              <p>
-                <strong style={{width:'10px'}}><img style={{width:'10px',color:'white',background:'green'}} src="https://www.svgrepo.com/show/533052/star.svg" alt="" /></strong> {movie.averageRating} / 10
+              <p style={{display:'flex'}}>
+                <strong style={{width:'10px',marginRight:'19px'}}><StarBorderIcon sx={{color:'yellow',}}/></strong> {movie.averageRating} / 10
               </p>
               <p>
                 <strong>Languages:</strong> {movie.spokenLanguages.join(", ")}
@@ -76,11 +78,14 @@ const MovieCard = () => {
                 style={{
                   display: "inline-block",
                   marginTop: "15px",
-                  
+                  padding:'2px 0px 5px 0px',
                   width:'100%',
                   textAlign: "center",
                   color: "#FFF",
                   textDecoration: "none",
+                  textAlign: "center",
+                    background: "#E2B616",
+                    color: "white",
                   borderRadius: "5px",
                 }}
               >

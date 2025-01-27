@@ -26,6 +26,7 @@ const Banner = ({movies}) => {
       {movies.map((movie, index) => (
         <div style={{ height:'500px',background: '#f5f5f5',
           padding: '10px',
+          margin:'10px',
           borderRadius: '8px',
           textAlign: 'center',
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',objectFit:'cover'}} id={index}>
@@ -40,7 +41,7 @@ const Banner = ({movies}) => {
             src={movie.Poster}
             alt={movie.Title}
           />
-          <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#333' }}>
+          <h3 style={{ fontSize: '16px', fontWeight: 'bold', color: '#333' ,position:'absolute',}}>
             {movie.Title}
           </h3>
         </div>
